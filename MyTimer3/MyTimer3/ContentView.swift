@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var timerHandler : Timer?
     @State var count = 0
     @AppStorage("timer_value") var timerValue = 10
+    @State var showAlert = false
 
     var body: some View {
         NavigationStack {
@@ -21,7 +22,7 @@ struct ContentView: View {
                     .scaledToFill()
 
                 VStack(spacing: 30.0) {
-                    Text("残り10秒")
+                    Text("残り\(timerValue - count)秒")
                         .font(.largeTitle)
                     HStack {
                         Button {
@@ -52,6 +53,11 @@ struct ContentView: View {
                     }
                 }
             }
+
+            .onAppear {
+                count = 0
+            }
+
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
@@ -61,12 +67,21 @@ struct ContentView: View {
                     }
                 }
             }
+
+            .alert("終了", isPresented: $showAlert) {
+                Button("OK") {
+                    print("OKタップされました")
+                }
+            } message: {
+                Text("タイマー終了時間です")
+            }
         }
         func countDownTimer() {
             count += 1
 
             if timerValue - count <= 0 {
                 timerHandler?.invalidate()
+                showAlert = true
             }
         }
         func startTimer() {
