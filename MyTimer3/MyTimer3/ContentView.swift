@@ -76,26 +76,26 @@ struct ContentView: View {
                 Text("タイマー終了時間です")
             }
         }
-        func countDownTimer() {
-            count += 1
+    }
+    func countDownTimer() {
+        count += 1
 
-            if timerValue - count <= 0 {
-                timerHandler?.invalidate()
-                showAlert = true
+        if timerValue - count <= 0 {
+            timerHandler?.invalidate()
+            showAlert = true
+        }
+    }
+    func startTimer() {
+        if let unwrappedTimerhandler = timerHandler {
+            if unwrappedTimerhandler.isValid == true {
+                return
             }
         }
-        func startTimer() {
-            if let unwrappedTimerhandler = timerHandler {
-                if unwrappedTimerhandler.isValid == true {
-                    return
-                }
-            }
-            if timerValue - count <= 0 {
-                count = 0
-            }
-            timerHandler = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                countDownTimer()
-            }
+        if timerValue - count <= 0 {
+            count = 0
+        }
+        timerHandler = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            countDownTimer()
         }
     }
 }
