@@ -24,25 +24,23 @@ struct ImagePickerView: UIViewControllerRepresentable {
             }
             parent.isShowSheet.toggle()
         }
-
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             parent.isShowSheet.toggle()
         }
+    }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
 
-        func makeCoordinator() -> Coordinator {
-            Coordinator(self)
-        }
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let myImagePickerController = UIImagePickerController()
+        myImagePickerController.sourceType = .camera
+        myImagePickerController.delegate = context.coordinator
+        return myImagePickerController
+    }
 
-        func makeUIViewController(context: Context) -> UIImagePickerController {
-            let myImagePickerController = UIImagePickerController()
-            myImagePickerController.sourceType = .camera
-            myImagePickerController.delegate = context.coordinator
-            return myImagePickerController
-        }
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
 
-        func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-            
-        }
     }
 }
 
