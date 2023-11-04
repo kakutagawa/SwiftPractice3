@@ -15,6 +15,7 @@
 		1DBC05502AF3EEB800FF82AF /* MyCamera3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC054F2AF3EEB800FF82AF /* MyCamera3UITests.swift */; };
 		1DBC05522AF3EEB800FF82AF /* MyCamera3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC05512AF3EEB800FF82AF /* MyCamera3UITestsLaunchTests.swift */; };
 		1DBC055F2AF3EF1E00FF82AF /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC055E2AF3EF1E00FF82AF /* ImagePickerView.swift */; };
+		1DBC05612AF60C7900FF82AF /* EffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBC05602AF60C7900FF82AF /* EffectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		1DBC054F2AF3EEB800FF82AF /* MyCamera3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCamera3UITests.swift; sourceTree = "<group>"; };
 		1DBC05512AF3EEB800FF82AF /* MyCamera3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCamera3UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1DBC055E2AF3EF1E00FF82AF /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		1DBC05602AF60C7900FF82AF /* EffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				1DBC05342AF3EEB500FF82AF /* MyCamera3App.swift */,
 				1DBC05362AF3EEB500FF82AF /* ContentView.swift */,
+				1DBC05602AF60C7900FF82AF /* EffectView.swift */,
 				1DBC055E2AF3EF1E00FF82AF /* ImagePickerView.swift */,
 				1DBC05382AF3EEB700FF82AF /* Assets.xcassets */,
 				1DBC053A2AF3EEB700FF82AF /* Preview Content */,
@@ -263,6 +266,7 @@
 				1DBC05372AF3EEB500FF82AF /* ContentView.swift in Sources */,
 				1DBC055F2AF3EF1E00FF82AF /* ImagePickerView.swift in Sources */,
 				1DBC05352AF3EEB500FF82AF /* MyCamera3App.swift in Sources */,
+				1DBC05612AF60C7900FF82AF /* EffectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +432,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyCamera3/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真を撮影するためにカメラを利用します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,6 +462,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyCamera3/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真を撮影するためにカメラを利用します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
