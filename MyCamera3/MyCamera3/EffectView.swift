@@ -11,6 +11,7 @@ struct EffectView: View {
     @Binding var isShowSheet: Bool
     let captureImage: UIImage
     @State var showImage: UIImage?
+    @State private var filterSelectNumber = 0
 
     //フィルタ名を列挙した配列(Array)
     //0.モノクロ
@@ -22,18 +23,17 @@ struct EffectView: View {
     //6.Tonal
     //7.Transfer
     //8.SepiaTone
-    let filterArray = ["CIPhotoEffectMono",
-                       "CIPhotoEffectChrome",
-                       "CIPhotoEffectFade",
-                       "CIPhotoEffectInstant",
-                       "CIPhotoEffectNoir",
-                       "CIPhotoEffectProcess",
-                       "CIPhotoEffectTonal",
-                       "CIPhotoEffectTransfer",
-                       "CISepiaTone"
+    let filterArray = [
+        "CIPhotoEffectMono",
+        "CIPhotoEffectChrome",
+        "CIPhotoEffectFade",
+        "CIPhotoEffectInstant",
+        "CIPhotoEffectNoir",
+        "CIPhotoEffectProcess",
+        "CIPhotoEffectTonal",
+        "CIPhotoEffectTransfer",
+        "CISepiaTone"
     ]
-
-    @State var filterSelectNumber = 0
 
     var body: some View {
         VStack {
@@ -61,13 +61,17 @@ struct EffectView: View {
                 }
                 effectFilter.setDefaults()
                 effectFilter.setValue(
-                    inputImage, forKey: kCIInputImageKey)
+                    inputImage, 
+                    forKey: kCIInputImageKey
+                )
                 guard let outputImage = effectFilter.outputImage else {
                     return
                 }
                 let ciContext = CIContext(options: nil)
-                guard let cgImage = ciContext.createCGImage(outputImage, from:
-                                                                outputImage.extent) else {
+                guard let cgImage = ciContext.createCGImage(
+                    outputImage,
+                    from: outputImage.extent
+                ) else {
                     return
                 }
                 showImage = UIImage(

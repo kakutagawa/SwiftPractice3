@@ -9,9 +9,9 @@ import SwiftUI
 import PhotosUI
 
 struct ContentView: View {
-    @State var captureImage: UIImage? = nil
-    @State var isShowSheet = false
-    @State var photoPickerSelectedImage: PhotosPickerItem? = nil
+    @State private var captureImage: UIImage? = nil
+    @State private var isShowSheet = false
+    @State private var photoPickerSelectedImage: PhotosPickerItem? = nil
 
     var body: some View {
         VStack {
@@ -48,7 +48,7 @@ struct ContentView: View {
                     .background(.blue)
                     .foregroundColor(.white)
             }
-            .onChange(of: photoPickerSelectedImage) {_, photosPickerItem in
+            .onChange(of: photoPickerSelectedImage) { _, photosPickerItem in
                 if let photosPickerItem {
                     photosPickerItem.loadTransferable(type: Data.self) { result in
                         switch result {
