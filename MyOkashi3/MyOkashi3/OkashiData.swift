@@ -37,13 +37,15 @@ class OkashiData: ObservableObject {
     
     @MainActor
     private func search(keyword: String) async {
-        guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        else {
+        guard let keyword_encode = keyword.addingPercentEncoding(
+            withAllowedCharacters: .urlQueryAllowed
+        ) else {
             return
         }
 
-        guard let req_url = URL(string: "https://sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r")
-        else {
+        guard let req_url = URL(
+            string: "https://sysbird.jp/toriko/api/?apikey=guest&format=json&keyword=\(keyword_encode)&max=10&order=r"
+        ) else {
             return
         }
         print(req_url)

@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var okashiDataList = OkashiData()
-    @State var inputText = ""
-    @State var showSafari = false
+    @StateObject private var okashiDataList = OkashiData()
+    @State private var inputText = ""
+    @State private var showSafari = false
 
 
     var body: some View {
         VStack {
-            TextField("キーワード", text: $inputText,
-                      prompt: Text("キーワードを入力してください"))
+            TextField(
+                "キーワード", text: $inputText,
+                prompt: Text("キーワードを入力してください")
+            )
             .onSubmit {
                 okashiDataList.searchOkashi(keyword: inputText)
             }
