@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var inputText: String = ""
-    @State var displaySearchKey: String = ""
-    @State var displayMapType: MapType = .standard
+    @State private var inputText: String = ""
+    @State private var displaySearchKey: String = ""
+    @State private var displayMapType: MapType = .standard
 
     var body: some View {
         VStack {
@@ -24,12 +24,13 @@ struct ContentView: View {
                 MapView(searchKey: displaySearchKey, mapType: displayMapType)
 
                 Button {
-                    if displayMapType == .standard {
-                        displayMapType = .satellite
-                    } else if displayMapType == .satellite {
-                        displayMapType = .hybrid
-                    } else {
-                        displayMapType = .standard
+                    switch displayMapType {
+                    case .standard:
+                            displayMapType = .satellite
+                    case .satellite:
+                            displayMapType = .hybrid
+                    case .hybrid:
+                            displayMapType = .standard
                     }
                 } label: {
                     Image(systemName: "map")
