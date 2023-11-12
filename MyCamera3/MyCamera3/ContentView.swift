@@ -64,7 +64,7 @@ struct ContentView: View {
                 }
             }
         }
-        .onChange(of: captureImage) {_, image in
+        .onChange(of: captureImage) { _, image in
             if let _ = image {
                 isShowSheet.toggle()
             }

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct EffectView: View {
-    @Binding var isShowSheet: Bool
-    let captureImage: UIImage
-    @State var showImage: UIImage?
+    @Binding private var isShowSheet: Bool
+    
+    @State private var showImage: UIImage?
     @State private var filterSelectNumber = 0
 
+    private let captureImage: UIImage
     //フィルタ名を列挙した配列(Array)
     //0.モノクロ
     //1.Chrome
@@ -23,7 +24,7 @@ struct EffectView: View {
     //6.Tonal
     //7.Transfer
     //8.SepiaTone
-    let filterArray = [
+    private let filterArray = [
         "CIPhotoEffectMono",
         "CIPhotoEffectChrome",
         "CIPhotoEffectFade",
