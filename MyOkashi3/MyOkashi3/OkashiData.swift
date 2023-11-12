@@ -14,8 +14,8 @@ struct OkashiItem: Identifiable {
     let image: URL
 }
 
-class OkashiData: ObservableObject {
-    struct ResultJson: Codable {
+private final class OkashiData: ObservableObject {
+    private struct ResultJson: Codable {
         struct Item: Codable {
             let name: String?
             let url: URL?
@@ -25,7 +25,7 @@ class OkashiData: ObservableObject {
     }
 
     @Published var okashiList: [OkashiItem] = []
-    var okashiLink: URL?
+    private(set) var okashiLink: URL?
 
     func searchOkashi(keyword: String) {
         print("searchOkashiメソッドで受け取った値：\(keyword)")
@@ -56,7 +56,7 @@ class OkashiData: ObservableObject {
             let json = try decoder.decode(ResultJson.self, from: data)
 
             guard let items = json.item else { return }
-            self.okashiList.removeAll()
+            okashiList.removeAll()
 
             for item in items {
                 if let name = item.name,

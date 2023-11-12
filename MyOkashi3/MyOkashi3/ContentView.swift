@@ -12,7 +12,6 @@ struct ContentView: View {
     @State private var inputText = ""
     @State private var showSafari = false
 
-
     var body: some View {
         VStack {
             TextField(
