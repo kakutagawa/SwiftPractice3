@@ -26,11 +26,11 @@ struct ContentView: View {
                 Button {
                     switch displayMapType {
                     case .standard:
-                            displayMapType = .satellite
+                        displayMapType = .satellite
                     case .satellite:
-                            displayMapType = .hybrid
+                        displayMapType = .hybrid
                     case .hybrid:
-                            displayMapType = .standard
+                        displayMapType = .standard
                     }
                 } label: {
                     Image(systemName: "map")
