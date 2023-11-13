@@ -9,9 +9,9 @@ import SwiftUI
 import PhotosUI
 
 struct ContentView: View {
-    @State private var captureImage: UIImage? = nil
+    @State private var captureImage: UIImage?
     @State private var isShowSheet = false
-    @State private var photoPickerSelectedImage: PhotosPickerItem? = nil
+    @State private var photoPickerSelectedImage: PhotosPickerItem?
 
     var body: some View {
         VStack {
