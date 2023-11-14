@@ -44,8 +44,10 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showSafari, content: {
-            SafariView(url: okashiDataList.okashiLink!)
-                .ignoresSafeArea(edges: [.bottom])
+            if let url = okashiDataList.okashiLink {
+                SafariView(url: url)
+                    .ignoresSafeArea(edges: [.bottom])
+            }
         })
     }
 }
